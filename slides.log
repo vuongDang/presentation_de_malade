@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  6 JUN 2016 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  10 JUN 2016 02:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -953,20 +953,20 @@ File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
 ) (./slides.aux)
 \openout1 = `slides.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1032,7 +1032,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box56
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1042,66 +1042,66 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count167
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
 
 (./slides.out) (./slides.out)
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 32.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 33.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 32.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 32.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 32.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 32.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 32.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 33.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 33.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 33.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 32.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 32.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 32.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 32.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 32.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 32.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 32.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 33.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 33.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 3
-2.
+3.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-32.
+33.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 32.
+ut line 33.
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
@@ -1127,116 +1127,171 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 32.
+LaTeX Info: Redefining \includegraphics on input line 33.
 \c@lstlisting=\count168
  (./slides.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 33.
+(Font)              size <5> substituted on input line 34.
 
 [1
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-LaTeX Font Info:    Try loading font information for U+msa on input line 50.
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for U+msa on input line 59.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 50.
+LaTeX Font Info:    Try loading font information for U+msb on input line 59.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 50.
+line 59.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-[3
+<images/flash.jpg, id=60, 1047.915pt x 1046.91125pt>
+File: images/flash.jpg Graphic file (type jpg)
+ <use images/flash.jpg>
+Package pdftex.def Info: images/flash.jpg used on input line 59.
+(pdftex.def)             Requested size: 107.55098pt x 107.44487pt.
 
-] <images/sfi_principle.pdf, id=115, 644.4075pt x 458.71375pt>
+[2
+
+ <./images/flash.jpg>] [3
+
+]
+<images/sfi_principle.pdf, id=117, 644.4075pt x 458.71375pt>
 File: images/sfi_principle.pdf Graphic file (type pdf)
 
 <use images/sfi_principle.pdf>
-Package pdftex.def Info: images/sfi_principle.pdf used on input line 58.
+Package pdftex.def Info: images/sfi_principle.pdf used on input line 77.
 (pdftex.def)             Requested size: 307.28987pt x 218.74522pt.
  [4
 
- <./images/sfi_principle.pdf>] [5
+ <./images/sfi_principle.pdf>]
+<images/sfi_schema.pdf, id=147, 694.595pt x 132.495pt>
+File: images/sfi_schema.pdf Graphic file (type pdf)
 
-]
+<use images/sfi_schema.pdf>
+Package pdftex.def Info: images/sfi_schema.pdf used on input line 92.
+(pdftex.def)             Requested size: 345.98447pt x 65.99866pt.
+ [5
+
+ <./images/sfi_schema.pdf>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 71.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 99.
+
+<images/algo_sandboxing.pdf, id=177, 604.2575pt x 137.51375pt>
+File: images/algo_sandboxing.pdf Graphic file (type pdf)
+
+<use images/algo_sandboxing.pdf>
+Package pdftex.def Info: images/algo_sandboxing.pdf used on input line 99.
+(pdftex.def)             Requested size: 302.128pt x 68.7567pt.
  [6
 
-]
-[7
+ <./images/algo_sandboxing.pdf>] [7
 
-] [8
+]
+[8
 
 ] [9
 
-] [10
-
-] [11
-
 ]
-\openout4 = `slides.vrb'.
-
- (./slides.vrb
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 3.
-LaTeX Font Info:    No file OMScmss.fd. on input line 3.
+\@verb\Buffer=\box57
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 146
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 146.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 3.
+(Font)              for symbol `textbraceleft' on input line 146.
 
-) [12
+[10
 
 ]
 \openout4 = `slides.vrb'.
 
- (./slides.vrb
+ (./slides.vrb) [11
 
-! LaTeX Error: There's no line here to end.
+] [12
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.20 \\
-       
-? 
-)
-Overfull \vbox (42.0645pt too high) detected at line 132
- []
-
-[13
+] [13
 
 ] [14
 
-] [15
+]
+<images/stack_layout.pdf, id=414, 168.63pt x 471.7625pt>
+File: images/stack_layout.pdf Graphic file (type pdf)
 
-] [16
+<use images/stack_layout.pdf>
+Package pdftex.def Info: images/stack_layout.pdf used on input line 237.
+(pdftex.def)             Requested size: 72.15439pt x 201.85995pt.
+ [15
+
+ <./images/stack_layout.pdf>] [16
 
 ] [17
 
-] [18
+]
+<images/stack_transform.pdf, id=496, 584.1825pt x 352.31625pt>
+File: images/stack_transform.pdf Graphic file (type pdf)
 
-] [19
+<use images/stack_transform.pdf>
+Package pdftex.def Info: images/stack_transform.pdf used on input line 263.
+(pdftex.def)             Requested size: 307.28987pt x 185.32898pt.
+ [18
 
-] [20
+ <./images/stack_transform.pdf>] [19
 
-] [21
+]
+<images/stack_align.pdf, id=592, 717.68124pt x 463.7325pt>
+File: images/stack_align.pdf Graphic file (type pdf)
 
-] [22
+<use images/stack_align.pdf>
+Package pdftex.def Info: images/stack_align.pdf used on input line 279.
+(pdftex.def)             Requested size: 307.28987pt x 198.55904pt.
+ [20
 
-] [23
+ <./images/stack_align.pdf>]
+\@verb\Check=\box58
+LaTeX Font Info:    Try loading font information for OML+cmss on input line 283
+.
+LaTeX Font Info:    No file OMLcmss.fd. on input line 283.
+
+
+LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textgreater' on input line 283.
+
+\openout4 = `slides.vrb'.
+
+(./slides.vrb) [21
+
+]
+\@verb\Branchless=\box59
+ [22
+
+]
+\@verb\Inline=\box60
+ [23
+
+]
+<images/time_percentage_graph.pdf, id=740, 642.4pt x 481.8pt>
+File: images/time_percentage_graph.pdf Graphic file (type pdf)
+
+<use images/time_percentage_graph.pdf>
+Package pdftex.def Info: images/time_percentage_graph.pdf used on input line 34
+3.
+(pdftex.def)             Requested size: 307.28987pt x 230.47473pt.
+ [24
+
+ <./images/time_percentage_graph.pdf>] [25
 
 ]
 \tf@nav=\write6
@@ -1248,11 +1303,11 @@ Overfull \vbox (42.0645pt too high) detected at line 132
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 355.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 355.
  (./slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 355.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 355.
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 2354AF7E89BB20A9CBB349394132A752;232.
 
@@ -1263,28 +1318,31 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 355.
  ) 
 Here is how much of TeX's memory you used:
- 18516 strings out of 494955
- 340118 string characters out of 6179231
- 459454 words of memory out of 5000000
- 21265 multiletter control sequences out of 15000+600000
- 10857 words of font info for 40 fonts, out of 8000000 for 9000
+ 18669 strings out of 494955
+ 343261 string characters out of 6179231
+ 557483 words of memory out of 5000000
+ 21401 multiletter control sequences out of 15000+600000
+ 16352 words of font info for 60 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 56i,14n,58p,386b,1369s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam10.pfb>
-Output written on slides.pdf (23 pages, 152895 bytes).
+ 56i,14n,58p,386b,1324s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msam7.pfb>
+Output written on slides.pdf (25 pages, 531449 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
- 625 compressed objects within 7 object streams
- 55 named destinations out of 1000 (max. 500000)
- 80 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 853 PDF objects out of 1000 (max. 8388607)
+ 749 compressed objects within 8 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 115 words of extra memory for PDF output out of 10000 (max. 10000000)
 
