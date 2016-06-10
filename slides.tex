@@ -91,107 +91,86 @@
 		\end{columns}
 \end{frame}
 
-\begin{frame}{Sandboxing}
-	Sandbox are continuous area identified by a tag. \\
-	For example the sandbox [\texttt{0xda000000}~-~\texttt{0xdaffffff}] has the tag \textbf{\texttt{0xda}}:
-	\hfill \break
-	\includegraphics[scale=0.5]{images/algo_sandboxing.pdf}
-\end{frame}
-
-\begin{frame}[c]{Implementations}
-	\begin{itemize}
-		\item First implementations for RISC architecture
-		\item NativeClient, SFI for Google Chrome x86-32, x86-64 and ARM
-			\begin{itemize}
-				\item Most complete implementation of SFI
-			\end{itemize}
-		\item Portable Software Fault Isolation, implementation with the certified compiler CompCert
-			\begin{itemize}
-				\item Take advantages of the correctness of CompCert
-				\item CompCert is the compiler used for our work
-			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Pros and cons of SFI}
-	\begin{itemize}
-		\item Pros
-		\begin{itemize}
-			\item Trusted Computing Base reduced to the verifier only
-			\item Faster than protection by process separation
-		\end{itemize}
-		\item Cons
-			\begin{itemize}
-				\item Architecture dependant
-				\item Slows down the modified modules (between 5\% and 21\% depending on the implementation)
-			\end{itemize}
-	\end{itemize}
-\end{frame}
+%\begin{frame}{Sandboxing}
+%	Sandbox are continuous area identified by a tag. \\
+%	For example the sandbox [\texttt{0xda000000}~-~\texttt{0xdaffffff}] has the tag \textbf{\texttt{0xda}}:
+%	\hfill \break
+%	\includegraphics[scale=0.5]{images/algo_sandboxing.pdf}
+%\end{frame}
+%
+%\begin{frame}[c]{Implementations}
+%	\begin{itemize}
+%		\item First implementations for RISC architecture
+%		\item NativeClient, SFI for Google Chrome x86-32, x86-64 and ARM
+%			\begin{itemize}
+%				\item Most complete implementation of SFI
+%			\end{itemize}
+%		\item Portable Software Fault Isolation, implementation with the certified compiler CompCert
+%			\begin{itemize}
+%				\item Take advantages of the correctness of CompCert
+%				\item CompCert is the compiler used for our work
+%			\end{itemize}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Pros and cons of SFI}
+%	\begin{itemize}
+%		\item Pros
+%		\begin{itemize}
+%			\item Trusted Computing Base reduced to the verifier only
+%			\item Faster than protection by process separation
+%		\end{itemize}
+%		\item Cons
+%			\begin{itemize}
+%				\item Architecture dependant
+%				\item Slows down the modified modules (between 5\% and 21\% depending on the implementation)
+%			\end{itemize}
+%	\end{itemize}
+%\end{frame}
+%\begin{frame}[c]{Problematics of SFI}
+%	\begin{itemize}
+%		\item SFI has difficulties to deal with indirect jump through return addresses
+%		\item SFI is still vulnerable to Return Oriented Programing (ROP) attacks
+%		\item ROP attacks are one of the most common attacks in the industry
+%		\item We propose a solution to solve this issue
+%	\end{itemize}
+%\end{frame}
 
 \begin{frame}[c]{Problematics of SFI}
+We want to prevent attackers from using vulnerable modules to compromise our system
 	\begin{itemize}
-		\item SFI has difficulties to deal with indirect jump through return addresses
-		\item SFI is still vulnerable to Return Oriented Programing (ROP) attacks
-		\item ROP attacks are one of the most common attacks in the industry
-		\item We propose a solution to solve this issue
+		\item SFI gives us a way to face such issue
+		\item However SFI is currently lacking against Returned Oriented Programing attacks
+		\item ROP attacks focus function return addresses to execute malicious code they injected
 	\end{itemize}
+	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%  ROP  %%%%%%%%%%%%%%%%%%%%
+% Faire un scnario plutôt avec un mdp revele
 \section{Return Oriented Programing attacks}
 \label{sec:Return Oriented Programing attacks}
 
 \defverbatim[colored]\Buffer{%
 \begin{lstlisting}[tabsize=2,frame=single]
-void evil_code() {
-	printf("Argh, we got hacked!\n");
+void reset_password() {
+	... reset password ...
 }
 
 void foo(char* input){
 	char buf[1];
 	... code ...
-	strcpy(buf, input);
+	strcpy(buf, input);		  //Vulnerability
 	... code ...
 }
 \end{lstlisting}}
 
-\begin{frame}{ROP attack example (1/3)}
+\begin{frame}{ROP attack example (1/2)}
 	\Buffer
 \end{frame}
 
-\begin{frame}[fragile]{ROP attack example (2/3)}
-\textcolor{gray}{terminal\$~} ./buffer \$(python -c 'print 13*"a" + "\textbackslash{x7b}\textbackslash{x84}\textbackslash{x04}\textbackslash{x08}"') \\
-\textcolor{red}{Address of evil\_code = 0x0804847b} \\
-Stack before: \hfill \break
-0xf7712000    \hfill \break
-0xff957998    \hfill \break
-0xf7593d26    \hfill \break
-0xf7712d60    \hfill \break
-0x0804868c    \hfill \break
-0xff957978    \hfill \break
-0xf7593d00    \hfill \break
-0xf7713dc0    \hfill \break
-0xf77828f8    \hfill \break
-0xff957998    \hfill \break
-0x08048510    ~~~~~~~~~~~~~~~~\textcolor{blue}{//Return address of \textit{foo}}\hfill \break
-\end{frame}
-
-\begin{frame}[c]{ROP attack example (3/3)}
-Stack after : \hfill \break
-0xff958161    \hfill \break
-0xff957998    \hfill \break
-0xf7593d26    \hfill \break
-0xf7712d60    \hfill \break
-0x0804868c    \hfill \break
-0xff957978   			   ~~~~~~~~~~~~~~~~\textcolor{blue}{//Buffer overflow}\hfill \break
-\textcolor{red}{0x61}593d00~~~~~~~~~~~~~~~~\textcolor{blue}{//``a''   } \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x61616161}~~~~~~~~~~~~~~~~\textcolor{blue}{//``aaaa''} \hfill \break
-\textcolor{red}{0x0804847b}~~~~~~~~~~~~~~~~\textcolor{blue}{//"\textbackslash{x7b}\textbackslash{x84}\textbackslash{x04}\textbackslash{x08}",  \textit{evil\_code} address }
-\\
-Argh, we got hacked! ~~\textcolor{blue}{ //Success! \textit{evil\_code} was executed}\\
-Segmentation fault (core dumped)
+\begin{frame}[c]{ROP attack example (2/2)}
+ schema	
 \end{frame}
 
 \begin{frame}[c]{Modern ROP attacks}
@@ -206,6 +185,9 @@ Segmentation fault (core dumped)
 
 
 %%%%%%%%%%%%%%%%%%%%  Overview  %%%%%%%%%%%%%%%%%%%%
+%Contributions
+%Table des matières
+%Enoncer les problematiques (localisation des addresses de retour
 \section{Overview of our approach}
 \label{sec:Overview of our approach}
 
@@ -217,7 +199,7 @@ Segmentation fault (core dumped)
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[c]{CompCert stack}
+\begin{frame}[c]{Stack structure}
 	\begin{columns}
 		\begin{column}{0.55\textwidth}
 			\begin{itemize}
@@ -236,7 +218,7 @@ Segmentation fault (core dumped)
 	\end{columns}
 \end{frame}
 
-
+%Faire un graphe evolutif
 \begin{frame}[c]{Transformations of the stack layout}
 	All the return addresses locations $a$ verify the equality $a~mod~n=0$, with $n$ a constant offset between the return addresses locations.
 	\begin{enumerate}
@@ -278,6 +260,12 @@ Segmentation fault (core dumped)
 	\end{figure}
 \end{frame}
 
+\begin{frame}[c]{Code transformation}
+We now know where the return addresses are located	
+Prevent them from being overwritten by modifying the code
+\end{frame}
+
+%Diagramme
 \defverbatim[colored]\Check{%
 \begin{lstlisting}[tabsize=2,frame=single]
 if (targeted_address > 0xff000000) {
@@ -311,6 +299,7 @@ if (targeted_address > 0xff000000) {
 Continue execution...
 \end{lstlisting}}
 
+%Diagramme
 \begin{frame}{Branchless runtime checks}
 	In certain cases  branchless code shows much better performance
 	\Branchless
@@ -326,6 +315,12 @@ int foo(int a) {
 \end{lstlisting}
 \end{center}}
 
+\begin{frame}[c]{Implementation environment}
+	CompCert
+	montrer les languages concerns par les transfos
+\end{frame}
+
+%Changer le titre
 \begin{frame}[c]{Conditions of our approach}
 	\begin{itemize}
 		\item No modifications of the stack (inline assembly)
@@ -338,11 +333,13 @@ int foo(int a) {
 \section{Evaluation}
 \label{sec:Implementation}
 
+%Changer couleurs et mettre plus de graphes
 \begin{frame}[c]{Evaluation of performance (1/2)}
 	\includegraphics[width=\textwidth]{images/time_percentage_graph.pdf}
 \end{frame}
 
-\begin{frame}[c]{Discussion}
+\begin{frame}[c]{Conclusion}
+	Prospectives
 	\begin{itemize}
 		\item Test our implementation against more complicated ROP attacks
 		\item Reduce the number of runtime checks with static analysis
