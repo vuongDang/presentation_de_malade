@@ -27,7 +27,24 @@
  
 %Information to be included in the title page:
 \title{Software Fault Isolation using the CompCert compiler}
-\author{Alexandre Dang}
+%\author{Alexandre Dang}
+%\{Supervisor:~Frédéric Besson}
+\author[\textit{Author}:~Alexandre Dang \and \textit{Supervisor}:~Frédéric Besson]
+{%
+	\texorpdfstring{
+		\begin{columns}[t]
+			\column{.45\linewidth}
+				\begin{center}
+				\textit{Author}: Alexandre Dang
+				\end{center}
+			\column{.45\linewidth}
+				\begin{center}
+				\textit{Supervisor}: Frédéric Besson
+				\end{center}
+		\end{columns}
+	}
+	{\textit{Auteur}: Alexandre Dang, \textit{Superviseur}: Frédéric Besson, \textit{\'Equipe}: Celtique}
+}
 \institute{Team Celtique}
  
 \begin{document}
@@ -60,11 +77,9 @@
 
 
 \begin{frame}{Goals of Software Fault Isolation (SFI)}
-	\begin{itemize}
+	\begin{itemize}\itemsep20pt
 		\item SFI aims to allow a protected program to execute dangerous modules in its own memory space without dangers. 
-		\item SFI confines the execution of the dangerous modules in a reserved area called sandbox
-		\item \texttt{jump} and \texttt{write} instructions are protected by runtime checks
-		\item function calls to the protected programs are controlled by SFI
+		\item SFI confines the execution of the dangerous modules in a reserved memory space called sandbox
 	\end{itemize}
 \end{frame}
 
@@ -86,7 +101,7 @@
 		\begin{columns}
 			\column{\dimexpr\paperwidth-10pt}
 			\begin{center}
-			\includegraphics[width=0.95\paperwidth]{images/sfi_schema.pdf}
+			\includegraphics[width=0.95\paperwidth]{images/sfi_chain.pdf}
 			\end{center}
 		\end{columns}
 \end{frame}
@@ -95,7 +110,7 @@
 We want to prevent attackers from using vulnerable modules to compromise our system
 	\begin{itemize}
 		\item SFI gives us a way to face such issue
-		\item However SFI is currently lacking against Returned Oriented Programing attacks
+		\item However SFI is currently lacking against Returned Oriented Programing attacks (ROP)
 		\item ROP attacks focus function return addresses to execute malicious code they injected
 	\end{itemize}
 	
@@ -109,13 +124,13 @@ We want to prevent attackers from using vulnerable modules to compromise our sys
 \defverbatim[colored]\Buffer{%
 \begin{lstlisting}[tabsize=2,frame=single]
 void reset_password() {
-	... reset password ...
+	... reset password ...			//Sensitive code
 }
 
 void foo(char* input){
 	char buf[1];
 	... code ...
-	strcpy(buf, input);		  //Vulnerability
+	strcpy(buf, input);					//Vulnerability
 	... code ...
 }
 \end{lstlisting}}
@@ -129,11 +144,21 @@ void foo(char* input){
 \end{frame}
 
 \begin{frame}[c]{Modern ROP attacks}
-\begin{itemize}
-	\item ROP attacks are a common kind of attack in the industry
-	\item Modern ROP attacks are much more complicated 
-	\item \textit{Return-to-libc} attacks uses code from the \textit{glibc} library to construct malicious code and uses return addresses to execute it
-\end{itemize}
+	\begin{itemize}
+		\item ROP attacks are a common kind of attack in the industry
+		\item Modern ROP attacks are much more complicated 
+	\end{itemize}
+	\hfill \break
+	\begin{center}
+		\textit{``Skype URI handling\\ routine contains a buffer overflow''}, 2005\footnotemark \\
+	\end{center}
+	\vspace{4mm}
+	\textit{``Apple Mail buffer \\overflow vulnerability``}, 2006\\
+	\begin{flushright}
+		\textit{''glibc vulnerable to stack buffer \\overflow in DNS resolver``}, 2016
+	\end{flushright}
+
+	\footnotetext{From CERT vulnerability database, TODO ref?}
 \end{frame}
 
 
@@ -146,13 +171,41 @@ void foo(char* input){
 \section{Overview of our approach}
 \label{sec:Overview of our approach}
 
-\begin{frame}[c]{Goals of our approach}
-	We want to have a way to protect return addresses at runtime.
-	\begin{itemize}
-		\item Modifications of the memory layout in order to have an easy way to know return addresses location
-		\item Code transformations which add runtime checks on the dangerous instruction in order to forbid any illegal \texttt{write} on the return addresses locations
+%\begin{frame}[c]{Goals of our approach}
+%	We want to have a way to protect return addresses at runtime.
+%	\begin{itemize}
+%		\item Modifications of the memory layout in order to have an easy way to know return addresses location
+%		\item Code transformations which add runtime checks on the dangerous instruction in order to forbid any illegal \texttt{write} on the return addresses locations
+%	\end{itemize}
+%\end{frame}
+
+\begin{frame}[c]{Contributions}
+\begin{itemize}\itemsep20pt
+		\item An approach protecting return addresses against ROP attacks
+		\item An implementation of our approach with the compiler CompCert for the x86-32 architecture
 	\end{itemize}
 \end{frame}
+
+
+\begin{frame}[c]{Problematic}
+	We want to add additional checks at runtime to protect the return addresses. \\
+	\begin{center}
+		{\Large How do we know the return addresses locations in the memory?}	
+		\break
+		\break
+		\visible<2>{\textcolor{red}{$\Rightarrow$~Modify the memory structure to have an easy way to distinguish return addresses locations}}
+	\end{center}
+\end{frame}
+
+\begin{frame}[c]{Presentation of our approach}
+	\begin{enumerate}\itemsep16pt
+		\item Presentation of the stack
+		\item Transformation of the stack structure
+		\item Insertion of runtime checks in the protected code
+		\item Evaluation of the approach
+	\end{enumerate}
+\end{frame}
+
 
 \begin{frame}[c]{Stack structure}
 	\begin{columns}
@@ -173,35 +226,46 @@ void foo(char* input){
 	\end{columns}
 \end{frame}
 
+\begin{frame}[c]{Stack transformation objective}
+	\begin{itemize}\itemsep16pt
+		\item We want a stack structure with a property on the return addresses locations
+		\item Every return addresses location $a$ verifies the equality \underline{$a~mod~n=0$}
+		\item The transformation is composed of two steps:
+			\begin{enumerate}
+				\item Constant frames size
+				\item Stack alignment
+			\end{enumerate}
+	\end{itemize}
+\end{frame}
 
 %Faire un graphe evolutif
-\begin{frame}[c]{Stack transformations (1/6)}{Find the biggest frames size}
+\begin{frame}[c]{Stack transformation (1/6)}{Find the biggest frames size}
 	\begin{center}
 		\includegraphics[height=0.6\textheight]{images/stack_transfo_0.pdf}
 	\end{center}
 \end{frame}
 %height=0.85\textheight
-\begin{frame}[c]{Stack transformations (2/6)}{Calculate the new frames size}
+\begin{frame}[c]{Stack transformation (2/6)}{Calculate the new frames size}
 	\begin{center}
 		\includegraphics[height=0.6\textheight]{images/stack_transfo_1.pdf}
 	\end{center}
 \end{frame}
-\begin{frame}[c]{Stack transformations (3/6)}{Fix the size of the frames}
+\begin{frame}[c]{Stack transformation (3/6)}{Fix the size of the frames}
 	\begin{center}
 		\includegraphics[height=0.7\textheight]{images/stack_transfo_2.pdf}
 	\end{center}
 \end{frame}
-\begin{frame}[c]{Stack transformations (4/6)}{Return addresses locations}
+\begin{frame}[c]{Stack transformation (4/6)}{Return addresses locations}
 	\begin{center}
    		\includegraphics[width=0.9\textwidth]{images/stack_transfo_3.pdf}
 	\end{center}
 \end{frame}
-\begin{frame}[c]{Stack transformations (5/6)}{Insertion of a new artificial main}
+\begin{frame}[c]{Stack transformation (5/6)}{Insertion of a new artificial main}
 	\begin{center}
 		\includegraphics[height=0.75\textheight]{images/stack_transfo_4.pdf}
 	\end{center}
 \end{frame}
-\begin{frame}[c]{Stack transformations (6/6)}{Return addresses locations}
+\begin{frame}[c]{Stack transformation (6/6)}{Return addresses locations}
 	\begin{center}
    		\includegraphics[height=0.75\textheight]{images/stack_transfo_5.pdf}
 	\end{center}
@@ -249,71 +313,83 @@ void foo(char* input){
 %end{frame}
 
 \begin{frame}[c]{Code transformation}
-We now know where the return addresses are located	
-Prevent them from being overwritten by modifying the code
+	\begin{itemize}\itemsep20pt
+		\item We have now an easy way to differentiate return addresses locations with $a~mod~n=0$
+		\item We need to insert additional runtime check to protect these locations from being overwritten illegally
+		\item Thus we transform the code adequately during the compilation phase
+	\end{itemize}
 \end{frame}
 
-%Diagramme
-\defverbatim[colored]\Check{%
-\begin{lstlisting}[tabsize=2,frame=single]
-if (targeted_address > 0xff000000) {
-	temp_var = targeted_address & (n-1);
-	if (temp_var < 3) {
-		Error behaviour
-	} 
-}
-*targeted_address = value;
-Continue execution...
-\end{lstlisting}}
+\begin{frame}[c]{Runtime check}
+	\vspace{-8mm}
+	\hspace{30mm}
+   	\includegraphics[height=0.95\textheight]{images/runtime_check.pdf}
+\end{frame}
 
-\begin{frame}[fragile]{Injection of runtime checks}
-	\begin{enumerate}
-		\item Check if the address is part of the stack
-		\item Check if the address verifies $a~mod~n=0$
-	\end{enumerate}
+\begin{frame}[c]{Branchless check}
+	\hspace{30mm}
+	\includegraphics[height=0.8\textheight]{images/branchless_check.pdf}
+\end{frame}
+%\defverbatim[colored]\Check{%
+%\begin{lstlisting}[tabsize=2,frame=single]
+%if (targeted_address > 0xff000000) {
+%	temp_var = targeted_address & (n-1);
+%	if (temp_var < 3) {
+%		Error behaviour
+%	} 
+%}
+%*targeted_address = value;
+%Continue execution...
+%\end{lstlisting}}
+%
+%\begin{frame}[fragile]{Injection of runtime checks}
+%	\begin{enumerate}
+%		\item Check if the address is part of the stack
+%		\item Check if the address verifies $a~mod~n=0$
+%	\end{enumerate}
+%	\hfill \break
+%	\Check
+%\end{frame}
+%\defverbatim[colored]\Branchless{%
+%\begin{lstlisting}[tabsize=2,frame=single]
+%if (targeted_address > 0xff000000) {
+%		temp_var = targeted_address & (n-1);
+%		temp_var = temp_var - 3;
+%		temp_var = temp_var >> 31;
+%		temp_var = ~temp_var;
+%		targeted_address = temp_var & targeted_address;
+%}
+%*targeted_address = value;
+%Continue execution...
+%\end{lstlisting}}
+%
+%%Diagramme
+%\begin{frame}{Branchless runtime checks}
+%	In certain cases  branchless code shows much better performance
+%	\Branchless
+%\end{frame}
+%
+
+\begin{frame}[c]{Implementation environment}{CompCert the certified compiler}
+	\begin{itemize}
+		\item CompCert has been proven with the proof assistant Coq
+		\item CompCert has performance similar to \texttt{gcc -O1}
+	\end{itemize}
 	\hfill \break
-	\Check
-\end{frame}
-\defverbatim[colored]\Branchless{%
-\begin{lstlisting}[tabsize=2,frame=single]
-if (targeted_address > 0xff000000) {
-		temp_var = targeted_address & (n-1);
-		temp_var = temp_var - 3;
-		temp_var = temp_var >> 31;
-		temp_var = ~temp_var;
-		targeted_address = temp_var & targeted_address;
-}
-*targeted_address = value;
-Continue execution...
-\end{lstlisting}}
-
-%Diagramme
-\begin{frame}{Branchless runtime checks}
-	In certain cases  branchless code shows much better performance
-	\Branchless
+	\includegraphics[width=\textwidth]{images/compcert_pass.pdf}
 \end{frame}
 
-\defverbatim[colored]\Inline{%
-	\begin{center}
-\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
-int foo(int a) {
-	asm(``\$sub 50, \%esp'');
-	printf("Hello world!");
-}
-\end{lstlisting}
-\end{center}}
-
-\begin{frame}[c]{Implementation environment}
-	CompCert
-	montrer les languages concerns par les transfos
-\end{frame}
-
-%Changer le titre
-\begin{frame}[c]{Conditions of our approach}
+\begin{frame}[fragile]{Necessary requirements}
 	\begin{itemize}
 		\item No modifications of the stack (inline assembly)
-			\Inline
-		\item Need to recompile extern libraries with the same frames size
+			\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
+			int foo(int a) {
+				asm(``\$sub 50, \%esp'');
+				printf("Hello world!");
+			}
+			\end{lstlisting}
+		\item No function pointers to protect our runtime checks
+		\item Need to recompile external libraries with the same frames size
 	\end{itemize}
 \end{frame}
 
@@ -322,15 +398,21 @@ int foo(int a) {
 \label{sec:Implementation}
 
 %Changer couleurs et mettre plus de graphes
-\begin{frame}[c]{Evaluation of performance (1/2)}
+\begin{frame}[c]{Evaluation of performance }
 	\includegraphics[width=\textwidth]{images/time_percentage_graph.pdf}
 \end{frame}
 
+\begin{frame}[c]{Evaluation of performance }
+	\includegraphics[width=\textwidth]{images/percentage_focus.pdf}
+\end{frame}
+
+
 \begin{frame}[c]{Conclusion}
-	Prospectives
+	\underline{Prospectives}
 	\begin{itemize}
 		\item Test our implementation against more complicated ROP attacks
 		\item Reduce the number of runtime checks with static analysis
+
 		\item Improve the performance of the runtime checks with a super-optimizer
 		\item See the impact of our approach on memory consumption
 	\end{itemize}
