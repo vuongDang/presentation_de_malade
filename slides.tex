@@ -19,7 +19,7 @@
 
 \lstset{escapechar=@,style=customc,numbers=left,literate={~} {$\sim$}{1}}
 
-
+\setbeamerfont{framesubtitle}{size=\normalsize}
 %TODO
 % add Frederic
 % add frame number
@@ -90,51 +90,6 @@
 			\end{center}
 		\end{columns}
 \end{frame}
-
-%\begin{frame}{Sandboxing}
-%	Sandbox are continuous area identified by a tag. \\
-%	For example the sandbox [\texttt{0xda000000}~-~\texttt{0xdaffffff}] has the tag \textbf{\texttt{0xda}}:
-%	\hfill \break
-%	\includegraphics[scale=0.5]{images/algo_sandboxing.pdf}
-%\end{frame}
-%
-%\begin{frame}[c]{Implementations}
-%	\begin{itemize}
-%		\item First implementations for RISC architecture
-%		\item NativeClient, SFI for Google Chrome x86-32, x86-64 and ARM
-%			\begin{itemize}
-%				\item Most complete implementation of SFI
-%			\end{itemize}
-%		\item Portable Software Fault Isolation, implementation with the certified compiler CompCert
-%			\begin{itemize}
-%				\item Take advantages of the correctness of CompCert
-%				\item CompCert is the compiler used for our work
-%			\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Pros and cons of SFI}
-%	\begin{itemize}
-%		\item Pros
-%		\begin{itemize}
-%			\item Trusted Computing Base reduced to the verifier only
-%			\item Faster than protection by process separation
-%		\end{itemize}
-%		\item Cons
-%			\begin{itemize}
-%				\item Architecture dependant
-%				\item Slows down the modified modules (between 5\% and 21\% depending on the implementation)
-%			\end{itemize}
-%	\end{itemize}
-%\end{frame}
-%\begin{frame}[c]{Problematics of SFI}
-%	\begin{itemize}
-%		\item SFI has difficulties to deal with indirect jump through return addresses
-%		\item SFI is still vulnerable to Return Oriented Programing (ROP) attacks
-%		\item ROP attacks are one of the most common attacks in the industry
-%		\item We propose a solution to solve this issue
-%	\end{itemize}
-%\end{frame}
 
 \begin{frame}[c]{Problematics of SFI}
 We want to prevent attackers from using vulnerable modules to compromise our system
@@ -218,47 +173,80 @@ void foo(char* input){
 	\end{columns}
 \end{frame}
 
+
 %Faire un graphe evolutif
-\begin{frame}[c]{Transformations of the stack layout}
-	All the return addresses locations $a$ verify the equality $a~mod~n=0$, with $n$ a constant offset between the return addresses locations.
-	\begin{enumerate}
-		\item Set a constant offset $n$ between all the return addresses
-		\item Align the stack
-	\end{enumerate}
+\begin{frame}[c]{Stack transformations (1/6)}{Find the biggest frames size}
+	\begin{center}
+		\includegraphics[height=0.6\textheight]{images/stack_transfo_0.pdf}
+	\end{center}
+\end{frame}
+%height=0.85\textheight
+\begin{frame}[c]{Stack transformations (2/6)}{Calculate the new frames size}
+	\begin{center}
+		\includegraphics[height=0.6\textheight]{images/stack_transfo_1.pdf}
+	\end{center}
+\end{frame}
+\begin{frame}[c]{Stack transformations (3/6)}{Fix the size of the frames}
+	\begin{center}
+		\includegraphics[height=0.7\textheight]{images/stack_transfo_2.pdf}
+	\end{center}
+\end{frame}
+\begin{frame}[c]{Stack transformations (4/6)}{Return addresses locations}
+	\begin{center}
+   		\includegraphics[width=0.9\textwidth]{images/stack_transfo_3.pdf}
+	\end{center}
+\end{frame}
+\begin{frame}[c]{Stack transformations (5/6)}{Insertion of a new artificial main}
+	\begin{center}
+		\includegraphics[height=0.75\textheight]{images/stack_transfo_4.pdf}
+	\end{center}
+\end{frame}
+\begin{frame}[c]{Stack transformations (6/6)}{Return addresses locations}
+	\begin{center}
+   		\includegraphics[height=0.75\textheight]{images/stack_transfo_5.pdf}
+	\end{center}
 \end{frame}
 
-\begin{frame}[c]{Constant offset $n$ between return addresses (1/2)}
-	Constant offset $n$ between return addresses locations
-	\begin{itemize}
-		\item Fix frames size to $n$
-		\item Pick $n$ as the biggest frame size of the previous stack
-		\item Pick $n$ as a power of two
-	\end{itemize}
-	With this we have $a~mod~n=c$, with $c$ the location of the first return address in the stack
-\end{frame}
-
-\begin{frame}[c]{Constant offset $n$ between return addresses (2/2)}
-	\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{images/stack_transform.pdf}
-	\end{figure}
-\end{frame}
-
-\begin{frame}[c]{Stack alignment (1/2)}
-	We currently have the equality $a~mod~n=c$ but we want $a~mod~n=0$ with $a$ any return address locations  and $c$ the first return address location in the stack.
-	\begin{itemize}
-		\item introduce an artificial function at the beginning of the program
-		\item the function align the stack as we wanted
-		\item the function then calls the \textit{main} of the program
-	\end{itemize}
-\end{frame}
-
-\begin{frame}[c]{Stack alignment (2/2)}
-	\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{images/stack_align.pdf}
-	\end{figure}
-\end{frame}
+%begin{frame}[c]{Transformations of the stack layout}
+%   All the return addresses locations $a$ verify the equality $a~mod~n=0$, with $n$ a constant offset between the return addresses locations.
+%   \begin{enumerate}
+%   	\item Set a constant offset $n$ between all the return addresses
+%   	\item Align the stack
+%   \end{enumerate}
+%end{frame}
+%
+%begin{frame}[c]{Constant offset $n$ between return addresses (1/2)}
+%   Constant offset $n$ between return addresses locations
+%   \begin{itemize}
+%   	\item Fix frames size to $n$
+%   	\item Pick $n$ as the biggest frame size of the previous stack
+%   	\item Pick $n$ as a power of two
+%   \end{itemize}
+%   With this we have $a~mod~n=c$, with $c$ the location of the first return address in the stack
+%end{frame}
+%
+%begin{frame}[c]{Constant offset $n$ between return addresses (2/2)}
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{images/stack_transform.pdf}
+%   \end{figure}
+%end{frame}
+%
+%begin{frame}[c]{Stack alignment (1/2)}
+%   We currently have the equality $a~mod~n=c$ but we want $a~mod~n=0$ with $a$ any return address locations  and $c$ the first return address location in the stack.
+%   \begin{itemize}
+%   	\item introduce an artificial function at the beginning of the program
+%   	\item the function align the stack as we wanted
+%   	\item the function then calls the \textit{main} of the program
+%   \end{itemize}
+%end{frame}
+%
+%begin{frame}[c]{Stack alignment (2/2)}
+%   \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{images/stack_align.pdf}
+%   \end{figure}
+%end{frame}
 
 \begin{frame}[c]{Code transformation}
 We now know where the return addresses are located	
