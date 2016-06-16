@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{BRSS08}
+Erik Buchanan, Ryan Roemer, Hovav Shacham, and Stefan Savage.
+\newblock When good instructions go bad: Generalizing return-oriented
+  programming to {RISC}.
+\newblock In Paul Syverson and Somesh Jha, editors, {\em Proceedings of CCS
+  2008}, pages 27--38. ACM Press, October 2008.
+
+\bibitem{Leroy:2009:FVR:1538788.1538814}
+Xavier Leroy.
+\newblock Formal verification of a realistic compiler.
+\newblock {\em Commun. ACM}, 52(7):107--115, 2009.
+
+\bibitem{Sehr:2010:ASF:1929820.1929822}
+David Sehr, Robert Muth, Cliff Biffle, Victor Khimenko, Egor Pasko, Karl
+  Schimpf, Bennet Yee, and Brad Chen.
+\newblock Adapting software fault isolation to contemporary cpu architectures.
+\newblock In {\em Proceedings of the 19th USENIX Conference on Security},
+  USENIX Security'10, pages 1--1. USENIX Association, 2010.
+
+\bibitem{Wahbe:1993:ESF:173668.168635}
+Robert Wahbe, Steven Lucco, Thomas~E. Anderson, and Susan~L. Graham.
+\newblock Efficient software-based fault isolation.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 27(5):203--216, 1993.
+
+\bibitem{Zeng:2011:CCI:2046707.2046713}
+Bin Zeng, Gang Tan, and Greg Morrisett.
+\newblock Combining control-flow integrity and static analysis for efficient
+  and validated data sandboxing.
+\newblock In {\em Proceedings of the 18th ACM Conference on Computer and
+  Communications Security}, CCS '11, pages 29--40. ACM, 2011.
+
+\end{thebibliography}
