@@ -441,6 +441,111 @@ void foo(char* input){
     \bibliography{ref}
 \end{frame}
 
+\begin{frame}[noframenumbering]{Branchless example}{Legal execution}
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+			{\ttfamily\only<1>{\colorbox{blue!30}{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}} \\}
+			\only<2->{					\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}  \\}
+
+			\only<2>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} 0x000000ff;}\\}
+			\only<1,3->{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} 0x000000ff;\\}
+
+			\only<3>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}\\}
+			\only<-2,4->{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;           \\}
+
+			\only<4>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}\\}
+			\only<-3,5->{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;         \\}
+
+			\only<5>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}\\}
+			\only<-4,6->{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;              \\}
+
+			\only<6>{\colorbox{blue!30}{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}\\}
+			\only<-5,7->{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;\\}
+
+			\textcolor{orange}{\}}\\
+
+			\only<7>{\colorbox{blue!30}{*addr \textcolor{red}{=} value;}\\}
+			\only<-6>{*addr \textcolor{red}{=} value;\\}
+			Continue execution...		}
+		\end{column}
+		\vrule
+		\hspace{10pt}
+		\begin{column}{0.45\textwidth}
+				\texttt{addr} is not a return address location, it should keep its value
+			\begin{block}{}
+				\underline{Values}\\
+				\texttt{addr}~= 
+				0xfffff718\\
+				\texttt{mask} =
+				\only<1>{0x00000000}\only<2>{0x00000018}\only<3>{0x00000015}\only<4>{0x00000000}\only<5->{0xffffffff}
+			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Branchless example}{Illegal execution}
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+			{\ttfamily\only<1>{\colorbox{blue!30}{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}} \\}
+			\only<2->{					\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}  \\}
+
+			\only<2>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} 0x000000ff;}\\}
+			\only<1,3->{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} 0x000000ff;\\}
+
+			\only<3>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}\\}
+			\only<-2,4->{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;           \\}
+
+			\only<4>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}\\}
+			\only<-3,5->{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;         \\}
+
+			\only<5>{\colorbox{blue!30}{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}\\}
+			\only<-4,6->{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;              \\}
+
+			\only<6>{\colorbox{blue!30}{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}\\}
+			\only<-5,7->{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;\\}
+
+			\textcolor{orange}{\}}\\
+
+			\only<7>{\colorbox{blue!30}{*addr \textcolor{red}{=} value;}\\}
+			\only<-6>{*addr \textcolor{red}{=} value;\\}
+			Continue execution...		}
+		\end{column}
+		\vrule
+		\hspace{10pt}
+		\begin{column}{0.45\textwidth}
+			Forbidden \texttt{write} destination the program should crash
+			\begin{block}{}
+				\underline{Values}\\
+				\texttt{addr}~= 
+				\only<-5>{0xfffff700}\only<6->{0x00000000}\\
+				\texttt{mask}~=
+				\only<1>{0x00000000}\only<2>{0x00000002}\only<3>{0xfffffffd}\only<4>{0xffffffff}\only<5->{0x00000000}
+			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
 \end{document}
 
+			
+
+%\begin{itemize}[<only>]
+%				\setlength\itemsep{0mm}
+%				\item[]<1> \texttt{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}}
+%				\item[]<2> \texttt{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} ($2^8$-1);}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} ($2^8$-1);}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}
+%				\item[] \texttt{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}
+%				\item[] \texttt{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}
+%				\item[] \texttt{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}
+%				\item[] \texttt{\textcolor{orange}{\}}}
+%				\item[] \texttt{*addr \textcolor{red}{=} value;}
+%				\item[] \texttt{*addr \textcolor{red}{=} value;}
+%				\item[] \texttt{Continue execution...}
+%			\end{itemize}
 
