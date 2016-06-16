@@ -20,6 +20,10 @@
 \lstset{escapechar=@,style=customc,numbers=left,literate={~} {$\sim$}{1}}
 
 \setbeamerfont{framesubtitle}{size=\normalsize}
+\setbeamerfont{page number in head/foot}{size=\small}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
 %TODO
 % add frame number
 % table of contents
@@ -420,6 +424,7 @@ void foo(char* input){
 		\item Reduce the number of runtime checks with static analysis~\cite{Zeng:2011:CCI:2046707.2046713}
 		\item Improve the performance of the runtime checks with a super-optimizer
 		\item See the impact of our approach on memory consumption
+		\item Prove the security properties of our implementation
 	\end{itemize}
 \end{frame}
 
