@@ -112,7 +112,13 @@ We want to prevent attackers from using vulnerable modules to compromise our sys
 		\item However SFI is currently lacking against Returned Oriented Programing attacks (ROP)
 		\item ROP attacks focus function return addresses to execute malicious code they injected
 	\end{itemize}
-	
+\end{frame}
+
+\begin{frame}[c]{Contributions}
+\begin{itemize}\itemsep20pt
+		\item An approach inspired from SFI protecting return addresses against ROP attacks
+		\item An implementation of our approach with the compiler CompCert for the x86-32 architecture
+	\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%  ROP  %%%%%%%%%%%%%%%%%%%%
@@ -180,12 +186,6 @@ void foo(char* input){
 %	\end{itemize}
 %\end{frame}
 
-\begin{frame}[c]{Contributions}
-\begin{itemize}\itemsep20pt
-		\item An approach protecting return addresses against ROP attacks
-		\item An implementation of our approach with the compiler CompCert for the x86-32 architecture
-	\end{itemize}
-\end{frame}
 
 
 \begin{frame}[c]{Problematic}
@@ -272,6 +272,11 @@ void foo(char* input){
 	\end{center}
 \end{frame}
 
+\begin{frame}[c]{Stack transformation}{Summary}
+	\begin{center}
+   		\includegraphics[width=\textwidth]{images/stack_transfo_final.pdf}
+	\end{center}
+\end{frame}
 %begin{frame}[c]{Transformations of the stack layout}
 %   All the return addresses locations $a$ verify the equality $a~mod~n=0$, with $n$ a constant offset between the return addresses locations.
 %   \begin{enumerate}
@@ -324,7 +329,7 @@ void foo(char* input){
 \begin{frame}[c]{Runtime check}
 	\vspace{-8mm}
 	\hspace{30mm}
-   	\includegraphics[height=0.95\textheight]{images/runtime_check.pdf}
+   	\includegraphics[height=0.85\textheight]{images/runtime_check.pdf}
 \end{frame}
 
 \begin{frame}[c]{Branchless check}
@@ -380,7 +385,7 @@ void foo(char* input){
 	\includegraphics[width=\textwidth]{images/compcert_pass.pdf}
 \end{frame}
 
-\begin{frame}[fragile]{Necessary requirements}
+\begin{frame}[fragile]{Requirements}
 	\begin{itemize}
 		\item No modifications of the stack (inline assembly)
 			\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]

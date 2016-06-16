@@ -1,4 +1,4 @@
-\frametitle{Necessary requirements}
+\frametitle{Requirements}
 \begin{itemize}
 \item No modifications of the stack (inline assembly)
 \begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
