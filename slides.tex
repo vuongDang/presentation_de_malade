@@ -519,33 +519,10 @@ void foo(char* input){
 				\texttt{addr}~= 
 				\only<-5>{0xfffff700}\only<6->{0x00000000}\\
 				\texttt{mask}~=
-				\only<1>{0x00000000}\only<2>{0x00000002}\only<3>{0xfffffffd}\only<4>{0xffffffff}\only<5->{0x00000000}
+				\only<1>{0x00000000}\only<2>{0x00000000}\only<3>{0xfffffffd}\only<4>{0xffffffff}\only<5->{0x00000000}
 			\end{block}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 \end{document}
-
-			
-
-%\begin{itemize}[<only>]
-%				\setlength\itemsep{0mm}
-%				\item[]<1> \texttt{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}}
-%				\item[]<2> \texttt{\textcolor{blue}{if} \textcolor{red}{(}addr \textcolor{red}{$>$} 0xff000000\textcolor{red}{)} \textcolor{orange}{\{}}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} ($2^8$-1);}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} addr \textcolor{red}{\&} ($2^8$-1);}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{-} 3;}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} mask \textcolor{red}{$>>$} 31;}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}
-%				\item[] \texttt{~~~~mask \textcolor{red}{=} \textcolor{red}{$\sim$}mask;}
-%				\item[] \texttt{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}
-%				\item[] \texttt{~~~~addr \textcolor{red}{=} mask \textcolor{red}{\&} addr;}
-%				\item[] \texttt{\textcolor{orange}{\}}}
-%				\item[] \texttt{*addr \textcolor{red}{=} value;}
-%				\item[] \texttt{*addr \textcolor{red}{=} value;}
-%				\item[] \texttt{Continue execution...}
-%			\end{itemize}
-
