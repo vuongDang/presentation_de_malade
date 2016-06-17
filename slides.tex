@@ -338,7 +338,7 @@ void foo(char* input){
    			\includegraphics[height=0.85\textheight]{images/runtime_check.pdf}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\begin{itemize}
+			\begin{itemize}\itemsep20pt
 				\item The protection mechanism might be executed numerous times
 				\item To improve performance we want to have this runtime check as fast as possible
 			\end{itemize}
@@ -349,7 +349,7 @@ void foo(char* input){
 \begin{frame}[c]{Branchless check}
 	\begin{columns}
 		\begin{column}{0.35\textwidth}
-			\begin{itemize}
+			\begin{itemize}\itemsep20pt
 				\item Uses only a single \textit{if...then...else} instruction
 				\item In certain situation has shown better performance
 			\end{itemize}

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 17:05
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 17:00
->>>>>>> 757e8e43326478753030d8ce91451bd7850f5eee
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1479,11 +1475,7 @@ pe1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-<<<<<<< HEAD
-Output written on slides.pdf (48 pages, 996018 bytes).
-=======
-Output written on slides.pdf (48 pages, 995897 bytes).
->>>>>>> 757e8e43326478753030d8ce91451bd7850f5eee
+Output written on slides.pdf (48 pages, 996017 bytes).
 PDF statistics:
  674 PDF objects out of 1000 (max. 8388607)
  469 compressed objects within 5 object streams
