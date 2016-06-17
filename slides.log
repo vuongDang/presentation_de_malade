@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  16 JUN 2016 17:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 10:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1297,25 +1297,35 @@ Package pdftex.def Info: images/stack_transfo_final.pdf used on input line 283.
 File: images/runtime_check.pdf Graphic file (type pdf)
 
 <use images/runtime_check.pdf>
-Package pdftex.def Info: images/runtime_check.pdf used on input line 337.
+Package pdftex.def Info: images/runtime_check.pdf used on input line 345.
 (pdftex.def)             Requested size: 169.70543pt x 218.57619pt.
- [24
+
+Overfull \hbox (16.0605pt too wide) in paragraph at lines 345--345
+[][]  
+ []
+
+[24
 
  <./images/runtime_check.pdf>]
 <images/branchless_check.pdf, id=432, 440.64626pt x 438.63875pt>
 File: images/branchless_check.pdf Graphic file (type pdf)
 
 <use images/branchless_check.pdf>
-Package pdftex.def Info: images/branchless_check.pdf used on input line 342.
+Package pdftex.def Info: images/branchless_check.pdf used on input line 359.
 (pdftex.def)             Requested size: 206.66pt x 205.71808pt.
- [25
+
+Overfull \hbox (6.92348pt too wide) in paragraph at lines 359--359
+[][]  
+ []
+
+[25
 
  <./images/branchless_check.pdf>]
 <images/compcert_pass.pdf, id=442, 1479.3426pt x 572.06601pt>
 File: images/compcert_pass.pdf Graphic file (type pdf)
 
 <use images/compcert_pass.pdf>
-Package pdftex.def Info: images/compcert_pass.pdf used on input line 390.
+Package pdftex.def Info: images/compcert_pass.pdf used on input line 407.
 (pdftex.def)             Requested size: 307.28987pt x 118.82805pt.
  [26
 
@@ -1328,8 +1338,8 @@ Package pdftex.def Info: images/compcert_pass.pdf used on input line 390.
 File: images/time_percentage_graph.pdf Graphic file (type pdf)
 
 <use images/time_percentage_graph.pdf>
-Package pdftex.def Info: images/time_percentage_graph.pdf used on input line 41
-3.
+Package pdftex.def Info: images/time_percentage_graph.pdf used on input line 43
+0.
 (pdftex.def)             Requested size: 307.28987pt x 230.47473pt.
  [28
 
@@ -1338,7 +1348,7 @@ Package pdftex.def Info: images/time_percentage_graph.pdf used on input line 41
 File: images/percentage_focus.pdf Graphic file (type pdf)
 
 <use images/percentage_focus.pdf>
-Package pdftex.def Info: images/percentage_focus.pdf used on input line 417.
+Package pdftex.def Info: images/percentage_focus.pdf used on input line 434.
 (pdftex.def)             Requested size: 307.28987pt x 230.47473pt.
  [29
 
@@ -1348,18 +1358,18 @@ Package pdftex.def Info: images/percentage_focus.pdf used on input line 417.
 (./slides.bbl) [31
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 484
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 502
 .
 
 (/usr/share/texlive/texmf-local/texmf-compat/tex/latex/R/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 484.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 502.
  [32
 
 ]
-Overfull \hbox (3.70158pt too wide) in paragraph at lines 484--484
+Overfull \hbox (3.70158pt too wide) in paragraph at lines 502--502
 [][][][][][][]  
  []
 
@@ -1378,7 +1388,7 @@ Overfull \hbox (3.70158pt too wide) in paragraph at lines 484--484
 ] [39
 
 ]
-Overfull \hbox (3.70158pt too wide) in paragraph at lines 526--526
+Overfull \hbox (3.70158pt too wide) in paragraph at lines 545--545
 [][][][][][][]  
  []
 
@@ -1404,11 +1414,11 @@ Overfull \hbox (3.70158pt too wide) in paragraph at lines 526--526
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 528.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 528.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 547.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 547.
  (./slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 528.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 528.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 547.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 547.
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 2354AF7E89BB20A9CBB349394132A752;232.
 
@@ -1419,13 +1429,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 528.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 547.
  ) 
 Here is how much of TeX's memory you used:
- 18855 strings out of 494955
- 348078 string characters out of 6179231
+ 18860 strings out of 494955
+ 348233 string characters out of 6179231
  488484 words of memory out of 5000000
- 21526 multiletter control sequences out of 15000+600000
+ 21531 multiletter control sequences out of 15000+600000
  15164 words of font info for 55 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  56i,11n,58p,386b,1324s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1440,7 +1450,7 @@ pe1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on slides.pdf (45 pages, 890547 bytes).
+Output written on slides.pdf (45 pages, 897742 bytes).
 PDF statistics:
  653 PDF objects out of 1000 (max. 8388607)
  453 compressed objects within 5 object streams

@@ -331,14 +331,31 @@ void foo(char* input){
 \end{frame}
 
 \begin{frame}[c]{Runtime check}
-	\vspace{-8mm}
-	\hspace{30mm}
-   	\includegraphics[height=0.85\textheight]{images/runtime_check.pdf}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+   			\includegraphics[height=0.85\textheight]{images/runtime_check.pdf}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item The protection mechanism might be executed numerous times
+				\item To improve performance we want to have this runtime check as fast as possible
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}[c]{Branchless check}
-	\hspace{30mm}
-	\includegraphics[height=0.8\textheight]{images/branchless_check.pdf}
+	\begin{columns}
+		\begin{column}{0.35\textwidth}
+			\begin{itemize}
+				\item Uses only a single \textit{if...then...else} instruction
+				\item In certain situation has shown better performance
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.65\textwidth}
+			\includegraphics[height=0.8\textheight]{images/branchless_check.pdf}
+		\end{column}
+	\end{columns}
 \end{frame}
 %\defverbatim[colored]\Check{%
 %\begin{lstlisting}[tabsize=2,frame=single]
@@ -471,7 +488,8 @@ void foo(char* input){
 		\vrule
 		\hspace{10pt}
 		\begin{column}{0.45\textwidth}
-				\texttt{addr} is not a return address location, it should keep its value
+			$$n=2^8=0x00000100$$	
+			\texttt{addr} is not a return address location, it should keep its value
 			\begin{block}{}
 				\underline{Values}\\
 				\texttt{addr}~= 
@@ -513,6 +531,7 @@ void foo(char* input){
 		\vrule
 		\hspace{10pt}
 		\begin{column}{0.45\textwidth}
+			$$n=2^8=0x00000100$$	
 			Forbidden \texttt{write} destination the program should crash
 			\begin{block}{}
 				\underline{Values}\\
