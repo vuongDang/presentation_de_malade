@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 10:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2016.2.16)  17 JUN 2016 17:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1165,7 +1165,7 @@ Package pdftex.def Info: images/flash.jpg used on input line 79.
  <./images/flash.jpg>] [3
 
 ]
-<images/sfi_principle.pdf, id=55, 644.4075pt x 458.71375pt>
+<images/sfi_principle.pdf, id=53, 644.4075pt x 458.71375pt>
 File: images/sfi_principle.pdf Graphic file (type pdf)
 
 <use images/sfi_principle.pdf>
@@ -1174,12 +1174,12 @@ Package pdftex.def Info: images/sfi_principle.pdf used on input line 95.
  [4
 
  <./images/sfi_principle.pdf>]
-<images/sfi_chain.pdf, id=64, 644.4075pt x 122.4575pt>
+<images/sfi_chain.pdf, id=62, 714.67pt x 142.5325pt>
 File: images/sfi_chain.pdf Graphic file (type pdf)
 
 <use images/sfi_chain.pdf>
 Package pdftex.def Info: images/sfi_chain.pdf used on input line 110.
-(pdftex.def)             Requested size: 345.98447pt x 65.75047pt.
+(pdftex.def)             Requested size: 345.98447pt x 69.00203pt.
  [5
 
  <./images/sfi_chain.pdf>] [6
@@ -1187,199 +1187,218 @@ Package pdftex.def Info: images/sfi_chain.pdf used on input line 110.
 ] [7
 
 ]
+<images/memory_struct.pdf, id=83, 466.74374pt x 300.12125pt>
+File: images/memory_struct.pdf Graphic file (type pdf)
+
+<use images/memory_struct.pdf>
+Package pdftex.def Info: images/memory_struct.pdf used on input line 136.
+(pdftex.def)             Requested size: 276.559pt x 177.83936pt.
+ [8
+
+ <./images/memory_struct.pdf>]
+<images/stack_layout.pdf, id=93, 168.63pt x 471.7625pt>
+File: images/stack_layout.pdf Graphic file (type pdf)
+
+<use images/stack_layout.pdf>
+Package pdftex.def Info: images/stack_layout.pdf used on input line 154.
+(pdftex.def)             Requested size: 68.93803pt x 192.85995pt.
+ [9
+
+ <./images/stack_layout.pdf>]
 \@verb\Buffer=\box57
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 135
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 158
 .
-LaTeX Font Info:    No file OMScmss.fd. on input line 135.
+LaTeX Font Info:    No file OMScmss.fd. on input line 158.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 135.
+(Font)              for symbol `textbraceleft' on input line 158.
 
-[8
+[10
 
-] <images/bof_stack.pdf, id=91, 395.4775pt x 364.36125pt>
+] <images/bof_stack.pdf, id=107, 395.4775pt x 364.36125pt>
 File: images/bof_stack.pdf Graphic file (type pdf)
 
 <use images/bof_stack.pdf>
-Package pdftex.def Info: images/bof_stack.pdf used on input line 155.
+Package pdftex.def Info: images/bof_stack.pdf used on input line 177.
 (pdftex.def)             Requested size: 195.37274pt x 180.00185pt.
- [9
+ [11
 
- <./images/bof_stack.pdf>] [10
-
-] [11
-
-] [12
+ <./images/bof_stack.pdf>] [12
 
 ] [13
 
-]
-<images/stack_layout.pdf, id=125, 168.63pt x 471.7625pt>
-File: images/stack_layout.pdf Graphic file (type pdf)
-
-<use images/stack_layout.pdf>
-Package pdftex.def Info: images/stack_layout.pdf used on input line 232.
-(pdftex.def)             Requested size: 68.93803pt x 192.85995pt.
- [14
-
- <./images/stack_layout.pdf>] [15
+] [14
 
 ]
-<images/stack_transfo_0.pdf, id=140, 383.4325pt x 283.0575pt>
+[15
+
+] [16
+
+] <images/stack_transfo_0.pdf, id=145, 383.4325pt x 283.0575pt>
 File: images/stack_transfo_0.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_0.pdf>
-Package pdftex.def Info: images/stack_transfo_0.pdf used on input line 251.
+Package pdftex.def Info: images/stack_transfo_0.pdf used on input line 253.
 (pdftex.def)             Requested size: 209.0046pt x 154.28954pt.
- [16
+ [17
 
  <./images/stack_transfo_0.pdf>]
-<images/stack_transfo_1.pdf, id=170, 433.62pt x 283.0575pt>
+<images/stack_transfo_1.pdf, id=175, 433.62pt x 283.0575pt>
 File: images/stack_transfo_1.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_1.pdf>
-Package pdftex.def Info: images/stack_transfo_1.pdf used on input line 257.
+Package pdftex.def Info: images/stack_transfo_1.pdf used on input line 259.
 (pdftex.def)             Requested size: 236.36122pt x 154.28954pt.
- [17
+ [18
 
  <./images/stack_transfo_1.pdf>]
-<images/stack_transfo_2.pdf, id=199, 354.32375pt x 322.20375pt>
+<images/stack_transfo_2.pdf, id=204, 354.32375pt x 322.20375pt>
 File: images/stack_transfo_2.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_2.pdf>
-Package pdftex.def Info: images/stack_transfo_2.pdf used on input line 262.
+Package pdftex.def Info: images/stack_transfo_2.pdf used on input line 264.
 (pdftex.def)             Requested size: 197.95497pt x 180.00185pt.
- [18
+ [19
 
  <./images/stack_transfo_2.pdf>]
-<images/stack_transfo_3.pdf, id=248, 495.8525pt x 322.20375pt>
+<images/stack_transfo_3.pdf, id=254, 495.8525pt x 322.20375pt>
 File: images/stack_transfo_3.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_3.pdf>
-Package pdftex.def Info: images/stack_transfo_3.pdf used on input line 267.
+Package pdftex.def Info: images/stack_transfo_3.pdf used on input line 269.
 (pdftex.def)             Requested size: 276.559pt x 179.70523pt.
- [19
+ [20
 
  <./images/stack_transfo_3.pdf>]
-<images/stack_transfo_4.pdf, id=278, 479.7925pt x 412.54124pt>
+<images/stack_transfo_4.pdf, id=283, 479.7925pt x 412.54124pt>
 File: images/stack_transfo_4.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_4.pdf>
-Package pdftex.def Info: images/stack_transfo_4.pdf used on input line 272.
+Package pdftex.def Info: images/stack_transfo_4.pdf used on input line 274.
 (pdftex.def)             Requested size: 224.30185pt x 192.85995pt.
- [20
+ [21
 
  <./images/stack_transfo_4.pdf>]
-<images/stack_transfo_5.pdf, id=331, 359.3425pt x 411.5375pt>
+<images/stack_transfo_5.pdf, id=337, 359.3425pt x 411.5375pt>
 File: images/stack_transfo_5.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_5.pdf>
-Package pdftex.def Info: images/stack_transfo_5.pdf used on input line 277.
+Package pdftex.def Info: images/stack_transfo_5.pdf used on input line 279.
 (pdftex.def)             Requested size: 168.3975pt x 192.85995pt.
- [21
+ [22
 
  <./images/stack_transfo_5.pdf>]
-<images/stack_transfo_final.pdf, id=365, 714.67pt x 402.50375pt>
+<images/stack_transfo_final.pdf, id=370, 714.67pt x 402.50375pt>
 File: images/stack_transfo_final.pdf Graphic file (type pdf)
 
 <use images/stack_transfo_final.pdf>
-Package pdftex.def Info: images/stack_transfo_final.pdf used on input line 283.
+Package pdftex.def Info: images/stack_transfo_final.pdf used on input line 285.
 
 (pdftex.def)             Requested size: 307.28987pt x 173.0671pt.
- [22
+ [23
 
  <./images/stack_transfo_final.pdf>]
-[23
+[24
 
-] <images/runtime_check.pdf, id=423, 383.4325pt x 493.845pt>
+] <images/runtime_check.pdf, id=428, 383.4325pt x 493.845pt>
 File: images/runtime_check.pdf Graphic file (type pdf)
 
 <use images/runtime_check.pdf>
-Package pdftex.def Info: images/runtime_check.pdf used on input line 345.
+Package pdftex.def Info: images/runtime_check.pdf used on input line 347.
 (pdftex.def)             Requested size: 169.70543pt x 218.57619pt.
 
-Overfull \hbox (16.0605pt too wide) in paragraph at lines 345--345
-[][]  
- []
-
-[24
-
- <./images/runtime_check.pdf>]
-<images/branchless_check.pdf, id=432, 440.64626pt x 438.63875pt>
-File: images/branchless_check.pdf Graphic file (type pdf)
-
-<use images/branchless_check.pdf>
-Package pdftex.def Info: images/branchless_check.pdf used on input line 359.
-(pdftex.def)             Requested size: 206.66pt x 205.71808pt.
-
-Overfull \hbox (6.92348pt too wide) in paragraph at lines 359--359
+Overfull \hbox (16.0605pt too wide) in paragraph at lines 347--347
 [][]  
  []
 
 [25
 
+ <./images/runtime_check.pdf>]
+<images/branchless_check.pdf, id=438, 440.64626pt x 438.63875pt>
+File: images/branchless_check.pdf Graphic file (type pdf)
+
+<use images/branchless_check.pdf>
+Package pdftex.def Info: images/branchless_check.pdf used on input line 366.
+(pdftex.def)             Requested size: 206.66pt x 205.71808pt.
+
+Overfull \hbox (6.92348pt too wide) in paragraph at lines 366--366
+[]  
+ []
+
+[26
+
  <./images/branchless_check.pdf>]
-<images/compcert_pass.pdf, id=442, 1479.3426pt x 572.06601pt>
+<images/branchless_check_2.pdf, id=447, 440.64626pt x 438.63875pt>
+File: images/branchless_check_2.pdf Graphic file (type pdf)
+
+<use images/branchless_check_2.pdf>
+Package pdftex.def Info: images/branchless_check_2.pdf used on input line 366.
+(pdftex.def)             Requested size: 206.66pt x 205.71808pt.
+
+Overfull \hbox (6.92348pt too wide) in paragraph at lines 366--366
+[]  
+ []
+
+[27
+
+ <./images/branchless_check_2.pdf>]
+<images/compcert_pass.pdf, id=456, 1479.3426pt x 572.06601pt>
 File: images/compcert_pass.pdf Graphic file (type pdf)
 
 <use images/compcert_pass.pdf>
-Package pdftex.def Info: images/compcert_pass.pdf used on input line 407.
+Package pdftex.def Info: images/compcert_pass.pdf used on input line 414.
 (pdftex.def)             Requested size: 307.28987pt x 118.82805pt.
- [26
+ [28
 
  <./images/compcert_pass.pdf>]
 \openout4 = `slides.vrb'.
 
- (./slides.vrb) [27
+ (./slides.vrb) [29
 
-] <images/time_percentage_graph.pdf, id=469, 642.4pt x 481.8pt>
+] <images/time_percentage_graph.pdf, id=481, 642.4pt x 481.8pt>
 File: images/time_percentage_graph.pdf Graphic file (type pdf)
 
 <use images/time_percentage_graph.pdf>
 Package pdftex.def Info: images/time_percentage_graph.pdf used on input line 43
-0.
+7.
 (pdftex.def)             Requested size: 307.28987pt x 230.47473pt.
- [28
+ [30
 
- <./images/time_percentage_graph.pdf>] <images/percentage_focus.pdf, id=485, 64
+ <./images/time_percentage_graph.pdf>] <images/percentage_focus.pdf, id=498, 64
 2.4pt x 481.8pt>
 File: images/percentage_focus.pdf Graphic file (type pdf)
 
 <use images/percentage_focus.pdf>
-Package pdftex.def Info: images/percentage_focus.pdf used on input line 434.
+Package pdftex.def Info: images/percentage_focus.pdf used on input line 441.
 (pdftex.def)             Requested size: 307.28987pt x 230.47473pt.
- [29
+ [31
 
- <./images/percentage_focus.pdf>] [30
-
-]
-(./slides.bbl) [31
+ <./images/percentage_focus.pdf>] [32
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 502
+[33
+
+] (./slides.bbl) [34
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 519
 .
 
 (/usr/share/texlive/texmf-local/texmf-compat/tex/latex/R/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 502.
- [32
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 519.
+ [35
 
 ]
-Overfull \hbox (3.70158pt too wide) in paragraph at lines 502--502
+Overfull \hbox (3.70158pt too wide) in paragraph at lines 519--519
 [][][][][][][]  
  []
 
-[33
-
-] [34
-
-] [35
-
-] [36
+[36
 
 ] [37
 
@@ -1387,22 +1406,28 @@ Overfull \hbox (3.70158pt too wide) in paragraph at lines 502--502
 
 ] [39
 
-]
-Overfull \hbox (3.70158pt too wide) in paragraph at lines 545--545
-[][][][][][][]  
- []
-
-[40
+] [40
 
 ] [41
 
 ] [42
 
-] [43
+]
+Overfull \hbox (3.70158pt too wide) in paragraph at lines 562--562
+[][][][][][][]  
+ []
+
+[43
 
 ] [44
 
 ] [45
+
+] [46
+
+] [47
+
+] [48
 
 ]
 \tf@nav=\write6
@@ -1414,11 +1439,11 @@ Overfull \hbox (3.70158pt too wide) in paragraph at lines 545--545
 \tf@snm=\write8
 \openout8 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 547.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 547.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 564.
  (./slides.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 547.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 547.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 2354AF7E89BB20A9CBB349394132A752;232.
 
@@ -1429,13 +1454,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 547.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 18860 strings out of 494955
- 348233 string characters out of 6179231
+ 18880 strings out of 494955
+ 348611 string characters out of 6179231
  488484 words of memory out of 5000000
- 21531 multiletter control sequences out of 15000+600000
+ 21543 multiletter control sequences out of 15000+600000
  15164 words of font info for 55 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  56i,11n,58p,386b,1324s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1450,10 +1475,10 @@ pe1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb>
-Output written on slides.pdf (45 pages, 897742 bytes).
+Output written on slides.pdf (48 pages, 995897 bytes).
 PDF statistics:
- 653 PDF objects out of 1000 (max. 8388607)
- 453 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
- 160 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 674 PDF objects out of 1000 (max. 8388607)
+ 469 compressed objects within 5 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

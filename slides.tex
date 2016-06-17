@@ -79,7 +79,7 @@
 \end{frame}
 
 
-\begin{frame}{Goals of Software Fault Isolation (SFI)~\cite{Wahbe:1993:ESF:173668.168635}}
+\begin{frame}{Software Fault Isolation (SFI)~[Wahbe et al, 1993]}
 	\begin{itemize}\itemsep20pt
 		\item SFI aims to allow a protected program to execute dangerous modules in its own memory space without dangers. 
 		\item SFI confines the execution of the dangerous modules in a reserved memory space called sandbox
@@ -109,13 +109,14 @@
 		\end{columns}
 \end{frame}
 
-\begin{frame}[c]{Problematics of SFI}
-We want to prevent attackers from using vulnerable modules to compromise our system
-	\begin{itemize}
-		\item SFI gives us a way to face such issue
-		\item However SFI is currently lacking against Returned Oriented Programing attacks (ROP)
-		\item ROP attacks focus function return addresses to execute malicious code they injected
-	\end{itemize}
+\begin{frame}[c]{Limitations of SFI}
+	\underline{Strength}\\
+	SFI prevent attackers from using vulnerable modules to compromise our system\\
+	\hfill \break
+	\hfill \break
+	\underline{Weakness}\\
+	SFI has difficulties to protect return addresses from being targeted \\
+	$\rightarrow$ Returned Oriented Programing attacks (ROP) 
 \end{frame}
 
 \begin{frame}[c]{Contributions}
@@ -130,6 +131,28 @@ We want to prevent attackers from using vulnerable modules to compromise our sys
 \section{Return Oriented Programing attacks}
 \label{sec:Return Oriented Programing attacks}
 
+\begin{frame}[c]{Memory structure}
+	\includegraphics[width=0.9\textwidth]{images/memory_struct.pdf}
+\end{frame}
+
+\begin{frame}[c]{Stack structure}
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+		\begin{itemize}\itemsep20pt
+				\item Return addresses are solely located in the stack
+				\item The stack piles up frames
+				\item Each frames matches a function
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\begin{figure}
+			\centering
+			\includegraphics[height=0.75\textheight]{images/stack_layout.pdf}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
 \defverbatim[colored]\Buffer{%
 \begin{lstlisting}[tabsize=2,frame=single]
 void reset_password() {
@@ -143,7 +166,6 @@ void foo(char* input){
 	... code ...
 }
 \end{lstlisting}}
-
 \begin{frame}{ROP attack example (1/2)}
 	\Buffer
 \end{frame}
@@ -157,9 +179,8 @@ void foo(char* input){
 \begin{frame}[c]{Modern ROP attacks}
 	\begin{itemize}
 		\item ROP attacks are a common kind of attack in the industry
-		\item Modern ROP attacks are much more complicated~\cite{BRSS08}
+		\item Modern ROP attacks are much more complicated~[Buchanan~et~al,2008]
 	\end{itemize}
-	\hfill \break
 	\begin{center}
 		\textit{``Skype URI handling\\ routine contains a buffer overflow''}, 2005\footnotemark \\
 	\end{center}
@@ -212,29 +233,10 @@ void foo(char* input){
 \end{frame}
 
 
-\begin{frame}[c]{Stack structure}
-	\begin{columns}
-		\begin{column}{0.55\textwidth}
-			\begin{itemize}
-				\item Programs memory is separated into multiple area like the heap, the stack or the code section
-				\item Return addresses are solely located in the stack
-				\item The stack is composed of piled up frames each related to a function being executed
-				\item Frames store data of their respective function
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.45\textwidth}
-			\begin{figure}
-			\centering
-			\includegraphics[height=0.75\textheight]{images/stack_layout.pdf}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
 \begin{frame}[c]{Stack transformation objective}
 	\begin{itemize}\itemsep16pt
 		\item We want a stack structure with a property on the return addresses locations
-		\item Every return addresses location $a$ verifies the equality \underline{$a~mod~n=0$}
+		\item Every return addresses location \underline{$a$} verifies \underline{$a~mod~n=0$}
 		\item The transformation is composed of two steps:
 			\begin{enumerate}
 				\item Constant frames size
@@ -324,9 +326,9 @@ void foo(char* input){
 
 \begin{frame}[c]{Code transformation}
 	\begin{itemize}\itemsep20pt
-		\item We have now an easy way to differentiate return addresses locations with $a~mod~n=0$
-		\item We need to insert additional runtime check to protect these locations from being overwritten illegally
-		\item Thus we transform the code adequately during the compilation phase
+		\item Differentiation of return addresses locations with $a~mod~n=0$
+		\item Insertion of additional runtime checks to protect these locations from being overwritten illegally
+		\item Transformation of the code during the compilation phase
 	\end{itemize}
 \end{frame}
 
@@ -353,7 +355,12 @@ void foo(char* input){
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.65\textwidth}
+			\only<1>{
 			\includegraphics[height=0.8\textheight]{images/branchless_check.pdf}
+			}
+			\only<2>{
+			\includegraphics[height=0.8\textheight]{images/branchless_check_2.pdf}
+			}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -397,7 +404,7 @@ void foo(char* input){
 %\end{frame}
 %
 
-\begin{frame}[c]{Implementation environment}{CompCert the certified compiler~\cite{Leroy:2009:FVR:1538788.1538814}}
+\begin{frame}[c]{Implementation environment}{CompCert the certified compiler~[Leroy, 2009]}
 	\begin{itemize}
 		\item CompCert has been proven with the proof assistant Coq
 		\item CompCert has performance similar to \texttt{gcc -O1}
@@ -434,14 +441,23 @@ void foo(char* input){
 \end{frame}
 
 
-\begin{frame}[c]{Conclusion}
-	\underline{Prospectives}
+\begin{frame}[c]{Future work}
+	\underline{Prospects}
 	\begin{itemize}
 		\item Test our implementation against more complicated ROP attacks
-		\item Reduce the number of runtime checks with static analysis~\cite{Zeng:2011:CCI:2046707.2046713}
+		\item Reduce the number of runtime checks with static analysis~[Zeng et al, 2011]
 		\item Improve the performance of the runtime checks with a super-optimizer
 		\item See the impact of our approach on memory consumption
 		\item Prove the security properties of our implementation
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Conclusion}
+	\begin{itemize}\itemsep16pt
+		\item Analysis and inspiration from SFI
+		\item Approach protecting programs against ROP attacks
+		\item Implementation on CompCert x86-32
+		\item Evaluation of the approach and future work
 	\end{itemize}
 \end{frame}
 
@@ -450,6 +466,7 @@ void foo(char* input){
 \nocite{Sehr:2010:ASF:1929820.1929822}
 \nocite{Wahbe:1993:ESF:173668.168635}
 \nocite{Zeng:2011:CCI:2046707.2046713}
+\nocite{BRSS08}
 
 \begin{frame}[noframenumbering]{References}
 	\scriptsize
