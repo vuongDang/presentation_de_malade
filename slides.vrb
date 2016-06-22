@@ -1,12 +1,12 @@
 \frametitle{Requirements}
-\begin{itemize}
+\begin{itemize}\itemsep16pt
 \item No modifications of the stack (inline assembly)
-\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
-int foo(int a) {
-asm(``\$sub 50, \%esp'');
-printf("Hello world!");
-}
-\end{lstlisting}
+%\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
+%int foo(int a) {
+% asm(``\$sub 50, \%esp'');
+% printf("Hello world!");
+%}
+%\end{lstlisting}
 \item No function pointers to protect our runtime checks
 \item Need to recompile external libraries with the same frames size
 \end{itemize}

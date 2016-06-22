@@ -132,7 +132,10 @@
 \label{sec:Return Oriented Programing attacks}
 
 \begin{frame}[c]{Memory structure}
-	\includegraphics[width=0.9\textwidth]{images/memory_struct.pdf}
+	\begin{center}
+		\only<1>{\includegraphics[height=0.75\textheight]{images/memory_struct_0.pdf}}
+		\only<2>{\includegraphics[height=0.75\textheight]{images/memory_struct_1.pdf}}
+	\end{center}
 \end{frame}
 
 \begin{frame}[c]{Stack structure}
@@ -179,7 +182,7 @@ void foo(char* input){
 \begin{frame}[c]{Modern ROP attacks}
 	\begin{itemize}
 		\item ROP attacks are a common kind of attack in the industry
-		\item Modern ROP attacks are much more complicated~[Buchanan~et~al,2008]
+		\item Modern ROP attacks are complicated~[Buchanan~et~al,2008]
 	\end{itemize}
 	\begin{center}
 		\textit{``Skype URI handling\\ routine contains a buffer overflow''}, 2005\footnotemark \\
@@ -225,7 +228,6 @@ void foo(char* input){
 
 \begin{frame}[c]{Presentation of our approach}
 	\begin{enumerate}\itemsep16pt
-		\item Presentation of the stack
 		\item Transformation of the stack structure
 		\item Insertion of runtime checks in the protected code
 		\item Evaluation of the approach
@@ -414,14 +416,14 @@ void foo(char* input){
 \end{frame}
 
 \begin{frame}[fragile]{Requirements}
-	\begin{itemize}
+	\begin{itemize}\itemsep16pt
 		\item No modifications of the stack (inline assembly)
-			\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
-			int foo(int a) {
-				asm(``\$sub 50, \%esp'');
-				printf("Hello world!");
-			}
-			\end{lstlisting}
+			%\begin{lstlisting}[tabsize=2,frame=single,linewidth=7cm]
+			%int foo(int a) {
+			%	asm(``\$sub 50, \%esp'');
+			%	printf("Hello world!");
+			%}
+			%\end{lstlisting}
 		\item No function pointers to protect our runtime checks
 		\item Need to recompile external libraries with the same frames size
 	\end{itemize}
@@ -454,7 +456,7 @@ void foo(char* input){
 
 \begin{frame}[c]{Conclusion}
 	\begin{itemize}\itemsep16pt
-		\item Analysis and inspiration from SFI
+		\item Research and analysis of SFI
 		\item Approach protecting programs against ROP attacks
 		\item Implementation on CompCert x86-32
 		\item Evaluation of the approach and future work
